@@ -81,23 +81,39 @@
             1) Simple: replace action with your email provider form endpoint (Mailchimp, ConvertKit, etc.)
             2) Custom: point to your own backend route, e.g. action="/waitlist" method="post"
           -->
-          <form class="waitlist" action="/waitlist" method="post">
-            <label>
-              <span class="mini" style="display:block;margin:0 0 6px;">Email</span>
-              <input class="input" type="email" name="email" placeholder="you@example.com" required />
-            </label>
+<form class="waitlist"
+      action="https://beetfruit.us8.list-manage.com/subscribe/post?u=f5836dc647ff77f7df4369130&id=66e7cb5f70&f_id=0014cce2f0"
+      method="post"
+      target="_blank"
+      novalidate>
 
-            <label>
-              <span class="mini" style="display:block;margin:0 0 6px;">Country (optional)</span>
-              <input class="input" type="text" name="country" placeholder="United Kingdom" />
-            </label>
+  <!-- Email field (required by Mailchimp) -->
+  <label>
+    <span class="mini" style="display:block;margin:0 0 6px;">Email</span>
+    <input class="input"
+           type="email"
+           name="EMAIL"
+           placeholder="you@example.com"
+           required>
+  </label>
 
-            <button class="btn btn-primary" type="submit">Join the waitlist</button>
+  <!-- Bot protection hidden field (Mailchimp standard) -->
+  <div style="position: absolute; left: -5000px;" aria-hidden="true">
+    <input type="text" name="b_f5836dc647ff77f7df4369130_66e7cb5f70" tabindex="-1">
+  </div>
 
-            <div class="mini">
-              No spam. Unsubscribe anytime.
-            </div>
-          </form>
+  <button class="btn btn-primary" type="submit">
+    Join the waitlist
+  </button>
+
+  <div class="mini">
+    No spam. Unsubscribe anytime.
+  </div>
+</form>
+
+
+
+
         </aside>
       </div>
     </div>
