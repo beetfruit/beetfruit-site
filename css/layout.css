@@ -84,6 +84,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 26px;
+ background: var(--muted); 
 }
 
 /* ----- Product Layout ----- */
