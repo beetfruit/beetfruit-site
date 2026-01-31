@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Beetfruit</title>
+
+  <link rel="stylesheet" href="/css/base.css?v=1">
+  <link rel="stylesheet" href="/css/layout.css?v=1">
+  <link rel="stylesheet" href="/css/components.css?v=1">
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <div class="logo">
+          <img src="/assets/beetfruit-logo.png" alt="Beetfruit logo">
+        </div>
+      </a>
+
+      <a class="btn" href="/">← Back</a>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <div class="wrap">
+
+    <h1>Contact Beetfruit</h1>
+    <p class="lead">
+      Have a question, partnership idea, or feedback?
+      Send us a message — we’ll get back to you.
+    </p>
+
+    <div class="card" style="max-width: 520px;">
+
+      <!-- ✅ Replace this action with your Formspree endpoint -->
+      <form action="https://formspree.io/f/xaqjrpqy"
+            method="POST"
+            class="waitlist">
+
+        <label>
+          <span class="mini">Your email</span>
+          <input class="input" type="email" name="email" required>
+        </label>
+
+        <label>
+          <span class="mini">Message</span>
+          <textarea class="input"
+                    name="message"
+                    rows="5"
+                    required
+                    style="resize: vertical;"></textarea>
+        </label>
+
+        <button class="btn btn-primary" type="submit">
+          Send message
+        </button>
+
+        <p class="mini">
+          We don’t store your details or send spam.
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
