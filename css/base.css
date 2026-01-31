@@ -43,6 +43,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.5;
+  padding-top: 72px
 }
 
 a {
