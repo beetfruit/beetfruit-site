@@ -95,7 +95,9 @@
   align-items: stretch;
   margin-top: 14px;
 }
-
+#waitlist {
+  scroll-margin-top: 120px;
+}
 /* ----- Footer Layout ----- */
 
 footer {
