@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SecuraCall — Responsible Growth & Abuse Prevention</title>
+  <meta name="description" content="How SecuraCall scales responsibly: measurable growth, controlled campaigns, and safeguards that reduce abuse while protecting user privacy." />
+
+  <style>
+    :root{
+      --bg: #f7f7f7;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: rgba(17,24,39,.10);
+      --accent: #ac7d88; /* Beetfruit-ish */
+      --accent-2:#6b7aa8; /* subtle secondary */
+      --shadow: 0 10px 30px rgba(17,24,39,.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1060px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
+    .topbar{
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247,247,247,.75);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .brand-badge{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(172,125,136,.95), rgba(107,122,168,.65));
+      box-shadow: 0 8px 20px rgba(172,125,136,.18);
+    }
+    .nav{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      font-size: 14px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .nav a:hover{
+      color: var(--text);
+      background: rgba(17,24,39,.04);
+      text-decoration:none;
+    }
+
+    .hero{
+      padding: 44px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{ padding: 26px; }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+    }
+    .dot{
+      width: 9px; height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(172,125,136,.14);
+    }
+
+    h1{
+      margin: 14px 0 8px;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+    .sub{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 16px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-weight: 650;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration:none !important;
+      user-select:none;
+    }
+    .btn-primary{
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(172,125,136,.25);
+    }
+    .btn-primary:hover{ filter: brightness(.97); }
+    .btn-ghost{
+      background: rgba(255,255,255,.7);
+      border-color: var(--line);
+      color: var(--text);
+    }
+    .btn-ghost:hover{ background: #fff; }
+
+    .side-card{ padding: 18px; }
+    .side-title{
+      font-weight: 750;
+      margin: 2px 0 10px;
+      letter-spacing: -.2px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      color: var(--muted);
+      font-size: 13px;
+      margin: 6px 6px 0 0;
+    }
+    .pill b{ color: var(--text); font-weight: 700; }
+
+    section{ padding: 14px 0 22px; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 16px;
+      margin: 8px 0 12px;
+    }
+    h2{
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -.2px;
+    }
+    .hint{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 70ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 920px){ .grid{ grid-template-columns: 1fr; } }
+
+    .mini{
+      padding: 16px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(17,24,39,.06);
+    }
+    .mini h3{
+      margin: 0 0 8px;
+      font-size: 15px;
+      letter-spacing: -.1px;
+    }
+    .mini p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 920px){ .split{ grid-template-columns: 1fr; } }
+
+    .callout{
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(172,125,136,.08), rgba(107,122,168,.06));
+    }
+    .callout strong{ font-weight: 750; }
+    .callout p{ margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+    .table{
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(17,24,39,.06);
+    }
+    .table th, .table td{
+      padding: 12px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      vertical-align: top;
+    }
+    .table th{
+      text-align:left;
+      color: var(--muted);
+      font-weight: 700;
+      background: rgba(17,24,39,.02);
+    }
+    .table tr:last-child td{ border-bottom: none; }
+
+    details{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+    }
+    details + details{ margin-top: 10px; }
+    summary{
+      cursor:pointer;
+      font-weight: 700;
+      color: var(--text);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{ margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+    footer{
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: 14px;
+    }
+    .tiny{ font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true"></div>
+          <div>Beetfruit <span class="tiny">/ SecuraCall</span></div>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/securacall/">SecuraCall</a>
+          <a href="/securacall/security.html">Security</a>
+          <a href="/securacall/privacy.html">Privacy</a>
+          <a href="/securacall/growth-and-abuse-prevention.html" style="color:var(--text); background:rgba(17,24,39,.04);">Growth & Abuse</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="card hero-card">
+          <div class="kicker"><span class="dot" aria-hidden="true"></span>Investor-facing overview • measurable growth • safety-first</div>
+          <h1>Responsible growth &amp; abuse prevention</h1>
+          <p class="sub">
+            SecuraCall is built to scale without compromising trust. We design growth channels as controlled systems,
+            measure outcomes (not vanity metrics), and apply safeguards that reduce abuse while respecting privacy.
+          </p>
+
+          <div class="callout">
+            <strong>Guiding principle:</strong> privacy does not mean the absence of safeguards.
+            <p>
+              We use a layered approach: accountable acquisition, measurable attribution, and proactive risk controls.
+            </p>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#measurement">How we measure</a>
+            <a class="btn btn-ghost" href="#safeguards">Safeguards</a>
+            <a class="btn btn-ghost" href="#faq">FAQ</a>
+          </div>
+        </div>
+
+        <aside class="card side-card">
+          <div class="side-title">What this page is (and isn’t)</div>
+          <p class="hint" style="margin-top:0;">
+            This is a high-level explanation of how we think about growth and safety. It’s aimed primarily at investors,
+            partners, and stakeholders who care about sustainability and risk.
+          </p>
+
+          <div style="margin-top:12px;">
+            <div class="pill"><b>Focus</b> ROI &amp; accountability</div>
+            <div class="pill"><b>Focus</b> abuse reduction</div>
+            <div class="pill"><b>Focus</b> auditability</div>
+            <div class="pill"><b>Not</b> a user manual</div>
+            <div class="pill"><b>Not</b> “growth hacks”</div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <div class="side-title">Quick summary</div>
+            <ul class="hint" style="padding-left:18px; margin:8px 0 0;">
+              <li>Channels are tracked with unique attribution.</li>
+              <li>Decisions are driven by conversion &amp; retention.</li>
+              <li>Safeguards trigger review and (when needed) account action.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section id="channels">
+      <div class="section-head">
+        <h2>Growth channels we can scale responsibly</h2>
+        <p class="hint">We treat each channel as a controllable input with measurable outputs and clear guardrails.</p>
+      </div>
+
+      <div class="grid">
+        <div class="mini">
+          <h3>Influencer partnerships</h3>
+          <p>Accountable, relationship-based acquisition with unique attribution per partner and clear expectations.</p>
+        </div>
+        <div class="mini">
+          <h3>Paid campaigns</h3>
+          <p>Budgeted, time-boxed campaigns with cost caps, structured experiments, and continuous measurement.</p>
+        </div>
+        <div class="mini">
+          <h3>Organic &amp; referrals</h3>
+          <p>Long-term compounding growth via content, partnerships, and referral incentives that are easy to audit.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;" class="callout">
+        <strong>Vertical awareness:</strong>
+        <span class="hint" style="display:block; margin-top:6px;">
+          We segment by vertical (e.g., technology, dating, online shopping, privacy/security) so we can learn where the
+          product resonates, and avoid pushing volume into weak-fit audiences.
+        </span>
+      </div>
+    </section>
+
+    <section id="measurement">
+      <div class="section-head">
+        <h2>Measurement &amp; attribution</h2>
+        <p class="hint">
+          Early-stage accuracy matters more than fancy dashboards. We prioritise clear attribution and auditability,
+          then automate once the signal is strong.
+        </p>
+      </div>
+
+      <table class="table" aria-label="Measurement framework">
+        <thead>
+          <tr>
+            <th style="width:28%;">What we track</th>
+            <th style="width:36%;">Why it matters</th>
+            <th>How it’s used</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Unique attribution</b> (codes / links / UTMs)</td>
+            <td>Connects acquisition activity to real outcomes.</td>
+            <td>Compare channels and partners on conversions, not impressions.</td>
+          </tr>
+          <tr>
+            <td><b>Conversion quality</b> (activation, retention)</td>
+            <td>Prevents “cheap signups” from looking like success.</td>
+            <td>Prioritise channels that produce durable, low-risk users.</td>
+          </tr>
+          <tr>
+            <td><b>Cost discipline</b> (caps, budgets, test sizes)</td>
+            <td>Avoids uncontrolled spend and unpredictable CAC.</td>
+            <td>Scale only when CAC and behaviour signals meet thresholds.</td>
+          </tr>
+          <tr>
+            <td><b>Audit notes</b> (agreements, outcomes)</td>
+            <td>Institutional memory for repeatability and diligence.</td>
+            <td>Supports investor review and internal decision-making.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="split" style="margin-top:14px;">
+        <div class="mini">
+          <h3>Outcome over vanity</h3>
+          <p>
+            We focus on signups that become active users, then measure retention and paid conversion as we scale.
+            Reach alone does not drive decisions.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>Controlled experiments</h3>
+          <p>
+            New channels begin as small tests with clear success criteria. We only increase spend when results are stable
+            and repeatable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="safeguards">
+      <div class="section-head">
+        <h2>Safeguards &amp; abuse prevention</h2>
+        <p class="hint">
+          Burner and privacy tools attract misuse. We design for that reality with layered safeguards and escalation paths.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="mini">
+          <h3>Behavioural signals</h3>
+          <p>We monitor for anomalous usage patterns (rate spikes, repeated failures, unusual messaging profiles).</p>
+        </div>
+        <div class="mini">
+          <h3>Tiered controls</h3>
+          <p>Limits and permissions can vary by plan/region and adapt as risk profiles evolve.</p>
+        </div>
+        <div class="mini">
+          <h3>Human review loop</h3>
+          <p>We prioritise a review workflow for edge cases before relying on heavy automation.</p>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top:14px;">
+        <div class="callout">
+          <strong>Escalation ladder (illustrative):</strong>
+          <p>
+            Flag → throttle → verify → temporary freeze → permanent action.
+            The goal is risk reduction with clear, auditable decision-making.
+          </p>
+        </div>
+        <div class="callout">
+          <strong>Safeguards without “surveillance”:</strong>
+          <p>
+            We focus on operational risk signals and abuse patterns rather than invasive content inspection.
+            Controls are designed to be proportionate and privacy-respecting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="governance">
+      <div class="section-head">
+        <h2>Internal governance &amp; auditability</h2>
+        <p class="hint">
+          Sustainability requires controls: who can provision, what actions are logged, and how decisions can be reviewed.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="mini">
+          <h3>Role-based admin access</h3>
+          <p>Operational actions are restricted and structured to reduce mistakes and misuse.</p>
+        </div>
+        <div class="mini">
+          <h3>Action logging</h3>
+          <p>Key administrative actions are logged to support review and accountability.</p>
+        </div>
+        <div class="mini">
+          <h3>Policy-driven evolution</h3>
+          <p>Controls can tighten or loosen as we learn, while maintaining a consistent audit trail.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;" class="callout">
+        <strong>Investor note:</strong>
+        <p>
+          We design the operating model to remain viable as volume grows, and to reduce the risk of platform bans,
+          compliance escalations, and reputational damage.
+        </p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head">
+        <h2>FAQ</h2>
+        <p class="hint">Short answers to the questions stakeholders most commonly ask.</p>
+      </div>
+
+      <details>
+        <summary>Is this page aimed at end users?</summary>
+        <p>
+          Not primarily. Most end users won’t care about internal measurement frameworks or safeguard ladders.
+          This page is intended to communicate responsibility and operational maturity to investors, partners, and stakeholders.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you “monitor everything” users do?</summary>
+        <p>
+          No. We focus on proportionate operational signals and abuse patterns to manage risk. Privacy remains central to the product.
+          Safeguards are designed to be measured, auditable, and minimised to what’s necessary.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you use AI for abuse detection?</summary>
+        <p>
+          We’re building a structured framework that can support anomaly detection over time. Early stages prioritise accurate attribution,
+          human review for edge cases, and conservative controls. Automation can be introduced once the signal is reliable.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do you measure whether a growth channel is working?</summary>
+        <p>
+          We look at conversion quality (activation and retention), cost discipline (test sizes and budgets), and downstream outcomes
+          (paid conversion where applicable). Reach and impressions are not treated as success metrics.
+        </p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between;">
+        <div style="max-width: 72ch;">
+          <b>Disclaimer</b>
+          <div class="tiny" style="margin-top:6px;">
+            This page is a high-level overview and may evolve as SecuraCall develops. Descriptions of safeguards are illustrative and
+            do not disclose sensitive implementation details.
+          </div>
+        </div>
+        <div class="tiny">
+          © <span id="year"></span> Beetfruit / SecuraCall
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
